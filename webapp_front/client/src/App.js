@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+
+import { Provider } from 'react-redux';
+import store from './store';
+
+import Dashboard from './components/dashboard/Dashboard';
 
 import './App.css';
 
@@ -19,9 +25,16 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        This is dashboard
-      </div>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            {/* <Route exact path='/' component={ Landing } /> */}
+            <div className="container">
+              <Route exact path="/dashboard" component={ Dashboard } />
+            </div>
+          </div>
+        </Router>
+      </Provider>
     )
   }
 }
