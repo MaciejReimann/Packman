@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends PagingAndSortingRepository<Client, Integer> {
+
+    Client findOneByBfr(String bfr);
 }
