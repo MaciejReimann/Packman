@@ -5,9 +5,9 @@ import axios from 'axios';
 import { Provider } from 'react-redux';
 import store from './store';
 
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
-import Dashboard from './components/dashboard/Dashboard';
+import Navbar from './components/presentation/Navbar';
+import Footer from './components/presentation/Footer';
+import Dashboard from './components/presentation/Dashboard';
 
 import './App.css';
 
@@ -34,6 +34,7 @@ class App extends Component {
             <Navbar/>
             {/* <Route exact path='/' component={ Landing } /> */}
             <div className="container">
+              {/* <Route exact path="/add" component={ AddOrder } /> */}
               <Route exact path="/dashboard" component={ Dashboard } />
             </div>
             <Footer/>
