@@ -10,6 +10,7 @@ import store from './store';
 
 import Navbar from './components/presentation/Navbar';
 import Add from './components/presentation/Add';
+import Landing from './components/presentation/Landing';
 import Footer from './components/presentation/Footer';
 import dashboardContainer from './components/containers/dashboardContainer';
 import formContainer from './components/containers/formContainer';
@@ -39,10 +40,9 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar/>
-            {/* <Route exact path='/' component={ Landing } /> */}
+            <Navbar/>            
             <div className="main-container">
-              {/* <Route exact path="/add" component={ AddOrder } /> */}
+              <Route exact path='/' component={ Landing } />
               <Route exact path="/dashboard" component={ dashboardContainer } />
               <Route exact path="/add" component={ formContainer } />
             </div>
