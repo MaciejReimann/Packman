@@ -13,6 +13,7 @@ import Footer from './components/presentation/Footer';
 import dashboardContainer from './components/containers/dashboardContainer';
 
 import './App.css';
+import './Navbar.css';
 
 class App extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class App extends Component {
           <div className="App">
             <Navbar/>
             {/* <Route exact path='/' component={ Landing } /> */}
-            <div className="container">
+            <div className="container main-container">
               {/* <Route exact path="/add" component={ AddOrder } /> */}
               <Route exact path="/dashboard" component={ dashboardContainer } />
             </div>

@@ -4,10 +4,11 @@ import OrderCard from './OrderCard'
 
 const Dashboard = ({ activeOrders }) => {
     const activeOrdersCards = activeOrders
-        .map(order => <OrderCard order={order}/>);
+        .map((order, id) => <OrderCard order={order} key={id}/>);
     return (
         <div className = "dashboard">
-            <div className = "container">
+            {activeOrdersCards}
+            {/* <div className = "container">
                 <div className = "row">
                     <div className = "col-md-12">
                         <h1 className = "display-4">
@@ -18,7 +19,7 @@ const Dashboard = ({ activeOrders }) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -7,10 +7,15 @@ import {
 
 const Navbar = ({ getAllOrders }) => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-            <div className="container">
-            <Link className="navbar-brand" to="/">DB Schenker</Link>
-            <button onClick={getAllOrders}>Get All</button>
+        <nav className="navbar navbar-border">
+            <div className="logo">
+                <a href="https://www.dbschenker.com/global">
+                    <img src="logos/db-logo.svg"></img>
+                </a>
+            </div>
+            <div className="search">
+                <input>
+                </input>
             </div>
         </nav>
     )

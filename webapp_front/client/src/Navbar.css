@@ -1,0 +1,14 @@
+
+
+
+.navbar {
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+
+    border-bottom: 1px solid grey;
+}
+
+.logo>a>img {
+    height: 1rem;
+}
