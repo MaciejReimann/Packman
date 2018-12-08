@@ -1,12 +1,10 @@
 package hello.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name= "client")
+@Table(name = "client")
 public class Client implements BaseEntity {
 
     @Id
@@ -16,17 +14,37 @@ public class Client implements BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "packageId")
-    private String packageId;
-
-    @Column(name = "time")
-    private String time;
-
     @Column(name = "description")
     private String description;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "bfr")
+    private String bfr;
+
+    @OneToMany(mappedBy="client", fetch = FetchType.EAGER)
+    private List<Parcel> parcels;
+
+    public List<Parcel> getParcels() {
+        return parcels;
+    }
+
+    public void setParcels(List<Parcel> parcels) {
+        this.parcels = parcels;
+    }
+
+    public String getBfr() {
+        return bfr;
+    }
+
+    public void setBfr(String bfr) {
+        this.bfr = bfr;
+    }
+
+    public Long getId() {
+        return id;
+    }
 
     public String getPhone() {
         return phone;
@@ -34,21 +52,6 @@ public class Client implements BaseEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    @Column(name = "phone")
-    private String phone;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getPackageId() {
-        return packageId;
-    }
-
-    public void setPackageId(String packageId) {
-        this.packageId = packageId;
     }
 
     public String getDescription() {
@@ -69,21 +72,5 @@ public class Client implements BaseEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 }
