@@ -73,7 +73,7 @@ public class ParcelDto implements BaseDto<Parcel> {
         setAddress(entity.getAddress());
         setParcelNo(entity.getParcelNo());
         setStatus(entity.getStatus());
-        setDeliveryTime(entity.getStatus());
+        setDeliveryTime(entity.getDeliveryTime());
         setEta(entity.getEta());
         return this;
     }
