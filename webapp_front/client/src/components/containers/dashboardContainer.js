@@ -25,7 +25,6 @@ const mapStateToProps = state => ({
     activeOrders: state.orders.activeOrders,
 });
 
-
 export default connect(
     mapStateToProps,
     {

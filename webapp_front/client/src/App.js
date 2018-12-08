@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { 
   BrowserRouter as Router, 
-  Route, 
-  // Switch 
+  Route
 } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
@@ -20,20 +19,7 @@ import './Navbar.css';
 import './Main.css';
 import './Footer.css';
 
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // dbResponse: null,
-      // routeResponse: null,
-      // fetching: true
-    };
-  }
-
-  componentDidMount() {
-  
-  };
 
   render() {
     return (

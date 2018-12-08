@@ -4,3 +4,12 @@
     width: 100vw;
     min-height: calc(100vh - 9rem - 4px);
 }
+
+.dashboard-container {
+    display: grid;
+    justify-items: center;
+}
+
+.header {
+    margin-bottom: 3rem;
+}

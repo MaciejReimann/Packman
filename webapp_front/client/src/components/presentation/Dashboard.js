@@ -7,19 +7,10 @@ const Dashboard = ({ activeOrders }) => {
         .map((order, id) => <OrderCard order={order} key={id}/>);
     return (
         <div className = "dashboard">
+        <h2 className = "header">
+            Shipment status
+        </h2>
             {activeOrdersCards}
-            {/* <div className = "container">
-                <div className = "row">
-                    <div className = "col-md-12">
-                        <h1 className = "display-4">
-                            Dashboard
-                        </h1>
-                        <div>
-                            {activeOrdersCards}
-                        </div>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }
