@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".DriverActivity"/>
+        <activity android:name=".DetailsActivity"/>
     </application>
 
 </manifest>

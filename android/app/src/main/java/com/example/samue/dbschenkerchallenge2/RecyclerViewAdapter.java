@@ -1,7 +1,10 @@
 package com.example.samue.dbschenkerchallenge2;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +29,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     ArrayList<Client> clients = new ArrayList<>();
     Context context;
+    CardView cardView;
+    boolean isGreen = false;
 
     public RecyclerViewAdapter(ArrayList<Client> clients, Context context){
         this.clients = clients;
@@ -59,8 +64,38 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     }
 
-    private void onClientClick(View v, int position) {
-        Toast.makeText(context, clients.get(position).name, Toast.LENGTH_SHORT).show();
+    private void onClientClick(View v, final int position) {
+        cardView = (CardView) v.findViewById(R.id.cardView);
+        if(cardView.getTag() == null || !cardView.getTag().toString().equals("SELECTED")) {
+            cardView.setCardBackgroundColor(v.getResources().getColor(R.color.lawn_green));
+            cardView.setTag("SELECTED");
+            Log.i("CARD IS GREEN","GREEN");
+            return;
+
+
+         } else{
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getContext());
+            alertDialogBuilder.setMessage("Are you sure");
+            alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    clients.remove(position);
+                }
+            });
+
+            alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                  //DO NOTHING
+                }
+            });
+
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
+        }
     }
 
     @Override

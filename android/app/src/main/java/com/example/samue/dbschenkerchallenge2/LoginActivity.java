@@ -1,6 +1,8 @@
 package com.example.samue.dbschenkerchallenge2;
 
+import android.app.PictureInPictureParams;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,12 @@ public class LoginActivity extends AppCompatActivity {
     EditText _emailText;
     EditText _passwordText;
     Button _loginButton;
+
+
+    @Override
+    public boolean enterPictureInPictureMode(@NonNull PictureInPictureParams params) {
+        return super.enterPictureInPictureMode(params);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
