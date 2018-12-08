@@ -16,9 +16,10 @@ const Navbar = ({ getAllOrders }) => {
                 </div>
                 <div className="search">
                     <i className="fas fa-search"></i>
-                    <input>
-                    </input>
                 </div>
+                <div className="search">
+                <i class="fas fa-bars"></i>
+                </div>                
             </div>
         </nav>
     )

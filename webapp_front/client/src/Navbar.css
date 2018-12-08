@@ -8,7 +8,7 @@
     align-items: center;
 }
 
-.items {
+.navbar .items {
     display: flex;
     flex-direction: row;
 }
