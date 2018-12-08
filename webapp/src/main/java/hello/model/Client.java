@@ -23,8 +23,30 @@ public class Client implements BaseEntity {
     @Column(name = "bfr")
     private String bfr;
 
+    @Column(name = "time_from")
+    private String from;
+
+    @Column(name = "time_to")
+    private String to;
+
     @OneToMany(mappedBy="client", fetch = FetchType.EAGER)
     private List<Parcel> parcels;
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
+    }
 
     public List<Parcel> getParcels() {
         return parcels;

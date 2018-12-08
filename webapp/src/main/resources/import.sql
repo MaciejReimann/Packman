@@ -27,6 +27,8 @@ create table `client`
   `description` varchar(512) DEFAULT NULL,
   `phone`varchar(16) DEFAULT NULL,
   `bfr` varchar(16) DEFAULT NULL,
+  `time_from` varchar(128) DEFAULT NULL,
+  `time_to` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -50,9 +52,9 @@ INSERT INTO product (id, name, val,) values(1, 'Bulbulator', '3.22');
 INSERT INTO product (id, name, val,) values(2, 'KiloFaza', '6.66');
 INSERT INTO product (id, name, val,) values(3, 'Kilwater w proszku', '1.50');
 
-INSERT INTO client (id, name, description, phone, bfr) values(1, 'Jan Kowalski', 'Dull Company', '+48123123123', 'JK');
-INSERT INTO client (id, name, description, phone, bfr) values(2, 'Janina Nowak', 'Borning Inc', '+48163888123', 'JN' );
-INSERT INTO client (id, name, description, phone, bfr) values(3, 'Ewa Brzeczyszczykiewicz', 'Nice Co.', '+48555123123', 'EB');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(1, 'Jan Kowalski', 'Dull Company', '+48123123123', 'JK', '2018/12/10 08:00', '2018/12/10 14:00');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(2, 'Janina Nowak', 'Borning Inc', '+48163888123', 'JN', '2018/12/10 10:00', '2018/12/10 12:00' );
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(3, 'Ewa Brzeczyszczykiewicz', 'Nice Co.', '+48555123123', 'EB', '2018/12/10 12:00', '2018/12/10 18:00');
 
 INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(1, 1, 'Zachodnia 121', 'PL00021', 'out for delivery', '2018/12/10 12:30', '30');
 INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(2, 1, 'Zachodnia 121', 'PL00333', 'out for delivery',  '2018/12/10 12:30', '30');

@@ -1,6 +1,10 @@
 package hello.domain;
 
 import hello.model.Client;
+import hello.model.Parcel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientDto implements BaseDto<Client> {
 
@@ -8,12 +12,31 @@ public class ClientDto implements BaseDto<Client> {
     private String name;
     private String description;
     private String phone;
+    private String from;
+    private String to;
+    private List<ParcelDto> parcels;
 
     public ClientDto() {
 
     }
     public ClientDto(Client c) {
         mapFromEntity(c);
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
     }
 
     public Long getId() {
@@ -49,6 +72,13 @@ public class ClientDto implements BaseDto<Client> {
         this.phone = phone;
     }
 
+    public List<ParcelDto> getParcels() {
+        return parcels;
+    }
+
+    public void setParcels(List<ParcelDto> parcels) {
+        this.parcels = parcels;
+    }
 
     @Override
     public ClientDto mapFromEntity(Client entity) {
@@ -56,6 +86,13 @@ public class ClientDto implements BaseDto<Client> {
         setName(entity.getName());
         setDescription(entity.getDescription());
         setPhone(entity.getPhone());
+        setFrom(entity.getFrom());
+        setTo(entity.getTo());
+        List<ParcelDto> parcels = new ArrayList<>();
+        for (Parcel p : entity.getParcels()) {
+            parcels.add(new ParcelDto(p));
+        }
+        setParcels(parcels);
         return this;
     }
 
@@ -66,6 +103,8 @@ public class ClientDto implements BaseDto<Client> {
         entity.setName(getName());
         entity.setDescription(getDescription());
         entity.setPhone(getPhone());
+        entity.setFrom(getFrom());
+        entity.setTo(getTo());
         return entity;
     }
 }
