@@ -21,9 +21,8 @@ public class ClientRestController {
 
     @ResponseBody
     @RequestMapping(value = "/api/package/{token}", method = RequestMethod.GET, produces = "application/json")
-    public Object getParcels(HttpServletRequest request, @PathVariable(name="token") String token, HttpServletResponse response) {
+    public Object getParcels(HttpServletRequest request, @PathVariable(name="token") String token) {
 //        String token = request.getHeader("token");
-        response.addHeader("Access-Control-Allow-Origin", "*");
         return clientService.getParcelsForClient(token);
     }
 
