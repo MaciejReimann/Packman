@@ -10,7 +10,7 @@ import {
 export const getAllOrders = () => dispatch => {
     // dispatch(setProfileLoading());
     axios
-      .get("http://77.55.234.86:8090/api/package/JK")
+      .get("http://77.55.234.86:8090/api/package/JN")
       .then(res =>
         dispatch({
           type: GET_ALL,

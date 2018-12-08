@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import Navbar from './components/presentation/Navbar';
+import Add from './components/presentation/Add';
 import Footer from './components/presentation/Footer';
 import dashboardContainer from './components/containers/dashboardContainer';
 import formContainer from './components/containers/formContainer';
@@ -45,6 +46,7 @@ class App extends Component {
               <Route exact path="/dashboard" component={ dashboardContainer } />
               <Route exact path="/add" component={ formContainer } />
             </div>
+            <Add/>
             <Footer/>
           </div>
         </Router>

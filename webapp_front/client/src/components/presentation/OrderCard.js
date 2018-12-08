@@ -1,27 +1,28 @@
 import React from 'react';
 
+import '../../Card.css';
+
 const OrderCard = ({ order }) => {
     return (
-        <div className="card order">
-            <div className="card-body row">
-                <div className = "col parcelNo">
-                    {order.parcelNo}
-                </div>
-                <div className = "col address">
-                    {order.address}
-                </div>
-                <div className = "col deliveryTime">
+        <div className="card">
+            <div className="items">
+                <div className = "deliveryTime">
                     {order.deliveryTime}
                 </div>
 
-            </div>
-            {/* <div cl ssName = "row">
-                <div className = "col-md-12">
+                <div className = "parcelNo">
                     {order.parcelNo}
                 </div>
-            </div>             */}
+                
+                <div className = "address">
+                    {order.address}
+                </div>
+                
+
+            </div>
         </div>
     )
+
 }
 
 export default OrderCard;
