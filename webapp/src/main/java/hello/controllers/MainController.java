@@ -14,9 +14,17 @@ public class MainController {
 	NameService nameService;
 	
 	@RequestMapping("/")
-	public String test(Model model) {
-		
-		model.addAttribute("name", nameService.getName());
+	public String main(Model model) {
 		return "index";
+	}
+
+	@RequestMapping("/client")
+	public String client(Model model) {
+		return "client/index";
+	}
+
+	@RequestMapping("/parcel")
+	public String parcel(Model model) {
+		return "parcel/index";
 	}
 }
