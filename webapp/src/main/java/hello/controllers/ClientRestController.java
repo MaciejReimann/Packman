@@ -21,8 +21,7 @@ public class ClientRestController {
 
     @ResponseBody
     @RequestMapping(value = "/api/package/{token}", method = RequestMethod.GET, produces = "application/json")
-    public Object getParcels(HttpServletRequest request, @PathVariable(name="token") String token) {
-//        String token = request.getHeader("token");
+    public Object getParcels(@PathVariable(name="token") String token) {
         return clientService.getParcelsForClient(token);
     }
 
