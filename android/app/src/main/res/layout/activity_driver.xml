@@ -21,9 +21,5 @@
 
 
 
-    <android.support.v7.app.AlertController.RecycleListView>
-
-
-    </android.support.v7.app.AlertController.RecycleListView>
 
 </LinearLayout>
