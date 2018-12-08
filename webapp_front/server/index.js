@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const path = require('path');
 // Take requests and data from the body
 const bodyParser = require('body-parser');
@@ -17,18 +17,18 @@ const app = express();
 // https://www.npmjs.com/package/body-parser
 // app.use(bodyParser.json());
 
-// DB Config
-const db = require('./config/keys').mongoURI;
+// // DB Config
+// const db = require('./config/keys').mongoURI;
 
-// Connect to Mongo
-if (db) {
-    mongoose
-    .connect(db)
-        .then(() => console.log('MongoDB connected'))
-        .catch(err => console.log(err))
-} else {
-    console.error("MONGOOSE ERROR: Probably some problem with Mongo keys")
-}
+// // Connect to Mongo
+// if (db) {
+//     mongoose
+//     .connect(db)
+//         .then(() => console.log('MongoDB connected'))
+//         .catch(err => console.log(err))
+// } else {
+//     console.error("MONGOOSE ERROR: Probably some problem with Mongo keys")
+// }
 
 // Use Routes
 app.use('/api/items', items);
