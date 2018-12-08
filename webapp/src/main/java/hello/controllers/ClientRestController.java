@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class ClientRestController {
@@ -20,8 +21,9 @@ public class ClientRestController {
 
     @ResponseBody
     @RequestMapping(value = "/api/package/{token}", method = RequestMethod.GET, produces = "application/json")
-    public Object getParcels(HttpServletRequest request, @PathVariable(name="token") String token) {
+    public Object getParcels(HttpServletRequest request, @PathVariable(name="token") String token, HttpServletResponse response) {
 //        String token = request.getHeader("token");
+        response.addHeader("Access-Control-Allow-Origin", "*");
         return clientService.getParcelsForClient(token);
     }
 
