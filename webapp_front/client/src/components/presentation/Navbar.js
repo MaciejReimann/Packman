@@ -7,15 +7,18 @@ import {
 
 const Navbar = ({ getAllOrders }) => {
     return (
-        <nav className="navbar navbar-border">
-            <div className="logo">
-                <a href="https://www.dbschenker.com/global">
-                    <img src="logos/db-logo.svg"></img>
-                </a>
-            </div>
-            <div className="search">
-                <input>
-                </input>
+        <nav className="navbar">
+            <div className="items">
+                <div className="logo">
+                    <a href="https://www.dbschenker.com/global">
+                        <img src="logos/db-logo.svg"></img>
+                    </a>
+                </div>
+                <div className="search">
+                    <i className="fas fa-search"></i>
+                    <input>
+                    </input>
+                </div>
             </div>
         </nav>
     )

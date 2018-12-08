@@ -14,6 +14,9 @@ import dashboardContainer from './components/containers/dashboardContainer';
 
 import './App.css';
 import './Navbar.css';
+import './Main.css';
+import './Footer.css';
+
 
 class App extends Component {
   constructor(props) {
