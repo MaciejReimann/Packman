@@ -35,7 +35,7 @@ public class FinalDelivery extends AsyncTask<Void, Void, Void> {
 
         URL url = null;
         try {
-        url = new URL("http://77.55.234.86:8090/api/parcel/delivered");
+        url = new URL("http://77.55.234.86:8090//api/parcel/updateEta");
         } catch (MalformedURLException e) {
         e.printStackTrace();
         }
