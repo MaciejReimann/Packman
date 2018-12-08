@@ -1,6 +1,6 @@
 .main-container {
     width: 100vw;
-    min-height: calc(100vh - 9rem);
+    min-height: calc(100vh - 9rem - 4px);
 }
 
 .main {

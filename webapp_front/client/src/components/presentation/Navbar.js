@@ -14,12 +14,13 @@ const Navbar = ({ getAllOrders }) => {
                         <img src="logos/db-logo.svg"></img>
                     </a>
                 </div>
-                <div className="search">
+                <div className="icons">
                     <i className="fas fa-search"></i>
+                    <i className="fas fa-bars"></i>
                 </div>
-                <div className="search">
-                <i class="fas fa-bars"></i>
-                </div>                
+                {/* <div className="search">
+                    
+                </div>                 */}
             </div>
         </nav>
     )
