@@ -8,10 +8,10 @@ import javax.persistence.*;
 public class Parcel implements BaseEntity {
 
     @Id
-    @SequenceGenerator(name="parcel_seq", initialValue = 10, allocationSize = 10)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "parcel_seq")
+    @SequenceGenerator(name="parcel_seq_id", initialValue = 10, allocationSize = 10, sequenceName = "parcel_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "parcel_seq_id")
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name ="client_id", nullable = false)
@@ -80,12 +80,12 @@ public class Parcel implements BaseEntity {
         this.eta = eta;
     }
 
-    public Long getId() {
+    public Integer getId() {
 
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }

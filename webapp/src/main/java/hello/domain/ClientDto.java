@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ClientDto implements BaseDto<Client> {
 
-    private Long id;
+    private Integer id;
     private String name;
     private String description;
     private String phone;
@@ -40,11 +40,11 @@ public class ClientDto implements BaseDto<Client> {
         this.to = to;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -91,7 +91,9 @@ public class ClientDto implements BaseDto<Client> {
         setTo(entity.getTo());
         List<ParcelDto> parcels = new ArrayList<>();
         for (Parcel p : entity.getParcels()) {
-            parcels.add(new ParcelDto(p));
+            if ("out for delivery".equals(p.getStatus())) {
+                parcels.add(new ParcelDto(p));
+            }
         }
         setParcels(parcels);
         return this;

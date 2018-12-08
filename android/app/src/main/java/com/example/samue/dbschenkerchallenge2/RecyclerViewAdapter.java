@@ -10,12 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -54,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.clientNameTextView.setText(client.name);
         holder.clientAddresstextView.setText(client.parcel.address+"\n"+client.parcel.parcelNo);
-
+        holder.parentLayout.setTag(client.parcel.parcelNo);
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +66,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         if(cardView.getTag() == null || !cardView.getTag().toString().equals("SELECTED")) {
             cardView.setCardBackgroundColor(v.getResources().getColor(R.color.lawn_green));
             cardView.setTag("SELECTED");
+            NotifyServer(((RelativeLayout)cardView.getParent()).getTag().toString());
             Log.i("CARD IS GREEN","GREEN");
             return;
 
@@ -77,15 +74,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
          } else{
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getContext());
-            alertDialogBuilder.setMessage("Are you sure");
-            alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            alertDialogBuilder.setMessage("Package has been delivered successfully");
+            alertDialogBuilder.setPositiveButton("OK",
+                    new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                 //    clients.remove(position);
+                    RemoveItem(((RelativeLayout)cardView.getParent()).getTag().toString());
+
                 }
             });
 
-            alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            alertDialogBuilder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                   //DO NOTHING
@@ -99,9 +99,29 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
+    private void NotifyServer(String tag) {
+        for(Client c : DriverActivity.clients)
+            if(c.parcel.parcelNo.equals(tag)) {
+
+
+            }
+    }
+
+    private void RemoveItem(String tag) {
+        for(Client c : DriverActivity.clients)
+            if(c.parcel.parcelNo.equals(tag)) {
+                DriverActivity.clients.remove(c);
+                this.notifyDataSetChanged();
+                SuccessfulDelivery successfulDeliveryd = new SuccessfulDelivery(c.parcel.id);
+                successfulDeliveryd.execute();
+                break;
+
+            }
+    }
+
     @Override
     public int getItemCount() {
-        return Client.count;
+        return DriverActivity.clients.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -109,7 +129,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView clientNameTextView;
         TextView clientAddresstextView;
         RelativeLayout parentLayout;
-
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
