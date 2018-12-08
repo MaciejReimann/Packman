@@ -1,23 +1,3 @@
-DROP TABLE IF EXISTS `employee`;
-
-CREATE TABLE `employee` (
-  `id` int NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `first_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `salary` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-);
-
-DROP TABLE IF EXISTS `product`;
-
-create table `product`
-(
-	`id` int NOT NULL,
-	`name` varchar(255) DEFAULT NULL,
-	`val` float DEFAULT NULL,
-);
-
 DROP TABLE IF EXISTS `client`;
 
 create table `client`
@@ -45,12 +25,6 @@ create table `parcel`
   `eta`  varchar(512) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
-
-INSERT INTO employee (id, email, first_name, last_name, salary) values(1, 'xx@xx.pl', 'Stefan', 'Pyk', 22);
-INSERT INTO employee (id, email, first_name, last_name, salary) values(2, 'xx@xx.pl', 'Zenon', 'Byk', 200);
-INSERT INTO product (id, name, val,) values(1, 'Bulbulator', '3.22');
-INSERT INTO product (id, name, val,) values(2, 'KiloFaza', '6.66');
-INSERT INTO product (id, name, val,) values(3, 'Kilwater w proszku', '1.50');
 
 INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(1, 'Jan Kowalski', 'Dull Company', '+48123123123', 'JK', '2018/12/10 08:00', '2018/12/10 14:00');
 INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(2, 'Janina Nowak', 'Borning Inc', '+48163888123', 'JN', '2018/12/10 10:00', '2018/12/10 12:00' );
