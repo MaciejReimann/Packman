@@ -39,6 +39,6 @@ public class DriverActivity extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(clients, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        
+
     }
 }
