@@ -1,0 +1,9 @@
+.main-container {
+    width: 100vw;
+    min-height: calc(100vh - 9rem);
+}
+
+.main {
+    display: grid;
+    justify-items: center;
+}

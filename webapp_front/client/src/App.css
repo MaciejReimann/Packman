@@ -1,15 +1,4 @@
 .App {
   text-align: center;
-}
-
-.main-container {
-  min-height: calc(100vh - 8rem);
-}
-
-.card {
-  width: 80vw;
-}
-
-.footer {
-  height: 4rem;
+  font-family: 'Roboto', sans-serif;
 }
