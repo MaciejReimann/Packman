@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class DriverActivity extends AppCompatActivity {
 
     private static final String TAG = "DriverActivity";
 
-    private ArrayList<Client> clients;
+    public static ArrayList<Client> clients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,22 @@ public class DriverActivity extends AppCompatActivity {
     }
 
     private void initListOfClients() {
-        clients.add(new Client("id1","Name Surname1","Warsaw", "+48 123 1" ));
-        clients.add(new Client("id2","Name Surname3","Warsaw", "+48 123 2" ));
-        clients.add(new Client("id3","Name Surname2","Warsaw", "+48 123 3" ));
+
+        /// Fet JSON
+        Server server = new Server("http://77.55.234.86:8090/api/client");
+        try {
+            server.execute().get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        /// Write JSON
+
 
         initRecyclerView();
+
+
     }
 
     private void initRecyclerView(){
