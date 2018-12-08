@@ -1,0 +1,41 @@
+{
+  "name": "mern-boilerplate",
+  "version": "1.0.0",
+  "description": "How to use create-react-app with a custom Node API on Heroku",
+  "engines": {
+    "node": "8.9.x"
+  },
+  "scripts": {
+    "locally": "npm install && cd client && npm install && cd.. && npm run dev",
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client \" ",
+    "publish": "git push heroku master && heroku open",
+    "heroku-postbuild": "cd client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+  },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.3.13",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaciejReimann/MERNBoilerplate"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "create-react-app",
+    "react"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
