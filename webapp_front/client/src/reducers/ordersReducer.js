@@ -6,7 +6,8 @@ import {
   
   const initialState = {
     activeOrders: [],
-    creatingOrder: null,
+    newOrder: {},
+    creatingOrder: false,
     loading: false
   };
   
@@ -26,7 +27,9 @@ import {
       case CREATE_NEW:
         return {
           ...state,
-          activeOrders: state.activeOrders.concat(action.payload),
+          // activeOrders: state.activeOrders.concat(action.payload),
+          newOrder: action.payload,
+          creatingOrder: true,
           loading: false
         };
       default:
