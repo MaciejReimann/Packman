@@ -1,7 +1,8 @@
 import {
     ORDERS_LOADING,
     GET_ALL,
-    CREATE_NEW
+    SPECIFY_TIME
+    // CREATE_NEW
   } from "../actions/types";
   
   const initialState = {
@@ -24,14 +25,19 @@ import {
           activeOrders: action.payload,
           loading: false
         };
-      case CREATE_NEW:
+      case SPECIFY_TIME:
         return {
           ...state,
-          // activeOrders: state.activeOrders.concat(action.payload),
-          newOrder: action.payload,
-          creatingOrder: true,
-          loading: false
+          clientTime: action.payload,
         };
+      // case CREATE_NEW:
+      //   return {
+      //     ...state,
+      //     // activeOrders: state.activeOrders.concat(action.payload),
+      //     newOrder: action.payload,
+      //     creatingOrder: true,
+      //     loading: false
+      //   };
       default:
         return state;
     }

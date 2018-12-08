@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { 
-    createNew 
-} from '../../actions/ordersActions';
+// import { 
+//     createNew 
+// } from '../../actions/ordersActions';
 import TextFieldGroup from '../presentation/common/TextFieldGroup';
 
 class formContainer extends Component {
@@ -83,9 +83,10 @@ const mapStateToProps = state => ({
     newOrder: state.orders.newOrder,
 });
 
-export default connect(
-    mapStateToProps,
-    {
-        createNew
-    }
-    )(formContainer);
+export default formContainer
+// connect(
+//     mapStateToProps,
+//     {
+//         createNew
+//     }
+//     )(formContainer);
