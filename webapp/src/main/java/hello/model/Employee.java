@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "employee")
-public class Employee {
+public class Employee  implements BaseEntity {
 	
 	
 	@Id
