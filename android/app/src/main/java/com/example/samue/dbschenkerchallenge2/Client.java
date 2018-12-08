@@ -18,6 +18,7 @@ public class Client {
     public String from;
     public String to;
 
+    public boolean isSelected;
     public Parcel parcel;
 
     public Client(String id, String name, String address, String phone_number) {
@@ -25,6 +26,8 @@ public class Client {
         this.name = name;
         this.address = address;
         this.phone_number = phone_number;
+
+        this.isSelected = false;
         count++;
     }
 
@@ -38,6 +41,8 @@ public class Client {
         this.from = from;
         this.to = to;
         this.parcel  = parcel;
+
+        this.isSelected = false;
         count ++;
     }
 
