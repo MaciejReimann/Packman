@@ -6,7 +6,8 @@ package com.example.samue.dbschenkerchallenge2;
 
 public class Client {
 
-    public Client(){
-
-    }
+    public String id;
+    public String name;
+    public String address;
+    public String phone_number;
 }
