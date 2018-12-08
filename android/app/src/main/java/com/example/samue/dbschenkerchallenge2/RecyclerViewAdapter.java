@@ -102,8 +102,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private void NotifyServer(String tag) {
         for(Client c : DriverActivity.clients)
             if(c.parcel.parcelNo.equals(tag)) {
-
-
+                FinalDelivery fd = new FinalDelivery(c.parcel.id, c.parcel.eta);
+                fd.execute();
             }
     }
 

@@ -23,7 +23,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class SuccessfulDelivery extends AsyncTask<Void, Void, Void> {
 
     String json;
-    String response;
+    String response = "";
 
     public SuccessfulDelivery(String id){
         this.json = "{\"id\":"+id+"}";
@@ -44,7 +44,7 @@ public class SuccessfulDelivery extends AsyncTask<Void, Void, Void> {
                 client = (HttpURLConnection) url.openConnection();
                 client.setRequestMethod("POST");
 
-                client.setRequestProperty("http://77.55.234.86:8090/api/parcel/delivered","application/json");
+                client.setRequestProperty("Content-Type","application/json");
 
                 client.setDoInput(true);
                 client.setDoOutput(true);
@@ -70,7 +70,7 @@ public class SuccessfulDelivery extends AsyncTask<Void, Void, Void> {
                     response = "!NOT_OKAY: "+responseCode;
                 }
                 Log.i("S_DELIV >> ", json);
-                Log.i("S_DELIV >> ", response);
+                Log.i("S_DELIV >> ", responseCode+"");
             }
              catch (ProtocolException e) {
                 e.printStackTrace();
