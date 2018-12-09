@@ -1,0 +1,11 @@
+
+
+.landing {
+    position: relative;
+    background: url('./img/db-landing.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 9rem - 4px);
+    /* margin-top: -24px;
+    margin-bottom: -50px; */
+  }

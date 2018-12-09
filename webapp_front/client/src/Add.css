@@ -3,11 +3,17 @@
 .add>button {
     z-index: 1100;
     position: fixed;
-    width: 2rem;
-    height: 2rem;
-    border: solid 1px lightgrey;
-    border-radius: 1rem;
+    width: 4rem;
+    height: 4rem;
+    border: solid 1.5px  rgb(255,0,0);;
+    border-radius: 2rem;
+    background: white;
     padding: 1rem;
-    bottom: 7rem;
-    right: 3rem;
+    bottom: 5.5rem;
+    right: 1.5rem;
+}
+
+.add>button>i {
+    font-size: 1.5rem;
+    color: rgb(255,0,0);
 }
