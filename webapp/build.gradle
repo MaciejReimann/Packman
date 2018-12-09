@@ -30,6 +30,7 @@ dependencies {
     compile("org.hibernate:hibernate-c3p0:5.3.7.Final")
     compile("com.h2database:h2")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-mail")
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
     // end::actuator[]

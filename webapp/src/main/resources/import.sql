@@ -12,6 +12,7 @@ create table `client`
   `bfr` varchar(16) DEFAULT NULL,
   `time_from` varchar(128) DEFAULT NULL,
   `time_to` varchar(128) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -30,12 +31,12 @@ create table `parcel`
 );
 
 
-INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(1, 'Jan Kowalski', 'Dull Company', '+48123123123', 'JK', '2018/12/10 08:00', '2018/12/10 14:00');
-INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(2, 'Janina Nowak', 'Borning Inc', '+48163888123', 'JN', '2018/12/10 10:00', '2018/12/10 12:00' );
-INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(3, 'Ewa Brzeczyszczykiewicz', 'Nice Co.', '+48555123123', 'EB', '2018/12/10 12:00', '2018/12/10 18:00');
-INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(4, 'Robert Derden', 'Nice Co.', '+4855666123', 'RB', '2018/12/10 08:00', '2018/12/10 12:00');
-INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(5, 'Krzysztof Erbra', 'Rock Co.', '+48121345633', 'KE', '2018/12/10 12:00', '2018/12/10 18:00');
-INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(6, 'Filip Konopny', 'Dance Limited.', '+48555123123', 'FK', '2018/12/10 06:00', '2018/12/10 11:00');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to, email) values(1, 'Jan Kowalski', 'Dull Company', '+48123123123', 'JK', '2018/12/10 08:00', '2018/12/10 14:00', 'dungald@gmail.com');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to, email) values(2, 'Janina Nowak', 'Borning Inc', '+48163888123', 'JN', '2018/12/10 10:00', '2018/12/10 12:00', 'dungald@gmail.com');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to, email) values(3, 'Ewa Brzeczyszczykiewicz', 'Nice Co.', '+48555123123', 'EB', '2018/12/10 12:00', '2018/12/10 18:00', 'dungald@gmail.com');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to, email) values(4, 'Robert Derden', 'Nice Co.', '+4855666123', 'RB', '2018/12/10 08:00', '2018/12/10 12:00', 'dungald@gmail.com');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to, email) values(5, 'Krzysztof Erbra', 'Rock Co.', '+48121345633', 'KE', '2018/12/10 12:00', '2018/12/10 18:00', 'dungald@gmail.com');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to, email) values(6, 'Filip Konopny', 'Dance Limited.', '+48555123123', 'FK', '2018/12/10 06:00', '2018/12/10 11:00', 'dungald@gmail.com');
 
 INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(1, 1, 'Zachodnia 121', 'PL00021', 'in transit', '2018/12/10 12:30', '270');
 INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(2, 1, 'Zachodnia 121', 'PL00333', 'out for delivery',  '2018/12/10 12:30', '270');
