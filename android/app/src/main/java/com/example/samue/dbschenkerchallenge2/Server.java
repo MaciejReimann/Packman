@@ -71,7 +71,6 @@ public class Server extends AsyncTask<Void, Void, Void>{
             for(int i=0; i<ja.length(); i++ ) {
                 JSONObject object = (JSONObject) ja.get(i);
                 JSONArray pa = object.getJSONArray("parcels");
-                ArrayList<Parcel> parcels = new ArrayList<>();
                 for(int j=0; j<pa.length(); j++) {
                     JSONObject pobject = (JSONObject) pa.get(j);
                     Parcel parcel = new Parcel(pobject.getString("id"),
@@ -81,15 +80,14 @@ public class Server extends AsyncTask<Void, Void, Void>{
                             pobject.getString("eta"),
                             pobject.getString("status")
                     );
-                    parcels.add(parcel);
-                }
-                DriverActivity.clients.add(new Client(object.getString("id"),
+                    DriverActivity.clients.add(new Client(object.getString("id"),
                         object.getString("name"),
                         object.getString("description"),
                         object.getString("phone"),
                         object.getString("from"),
                         object.getString("to"),
-                        parcels));
+                        parcel));
+                }
             }
 
         } catch (JSONException e) {
