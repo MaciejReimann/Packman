@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `client`;
 
 CREATE SEQUENCE IF NOT EXISTS client_seq START WITH 10;
-CREATE SEQUENCE IF NOT EXISTS parcel_seq START WITH 10;
+CREATE SEQUENCE IF NOT EXISTS parcel_seq START WITH 20;
 
 create table `client`
 (
@@ -46,6 +46,6 @@ INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, et
 INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(7, 4, 'Izolacyjna 1143', 'PL43328', 'out for delivery',  '2018/12/10 09:30', '90');
 INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(8, 5, 'Lukrecji 13', 'PL11118', 'out for delivery',  '2018/12/10 08:30', '30');
 INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(9, 5, 'Rudy 102', 'PL10200', 'out for delivery',  '2018/12/10 08:15', '15');
-INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(5, 2, 'Wschodnia 6', 'PL42264', 'delivered',  '2018/12/02 08:00', '0');
-INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(5, 2, 'Wschodnia 6', 'PL00012', 'delivered',  '2018/12/04 10:15', '0');
+INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(10, 2, 'Wschodnia 6', 'PL42264', 'delivered',  '2018/12/02 08:00', '0');
+INSERT INTO parcel (id, client_id, address, parcel_no, status, delivery_time, eta) values(11, 2, 'Wschodnia 6', 'PL00012', 'delivered',  '2018/12/04 10:15', '0');
 
