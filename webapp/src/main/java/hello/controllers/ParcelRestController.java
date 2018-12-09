@@ -47,6 +47,6 @@ public class ParcelRestController {
             parcel.setEta(parcelDto.getEta());
             parcelRepository.save(parcel);
         }
-        emailService.sendSimpleMessage(parcel.getClient().getEmail(), "Parcel no"+ parcel.getParcelNo() + " will sooon at your doorstep!", "Parcel " + parcel.getParcelNo()  +" will be at your doorstep in " + parcel.getEta() + " minutes.");
+        emailService.sendSimpleMessage(parcel.getClient().getEmail(), "Parcel no "+ parcel.getParcelNo() + " will sooon at your doorstep!", "Parcel " + parcel.getParcelNo()  +" will be at your doorstep in " + parcel.getEta() + " minutes.");
     }
 }
