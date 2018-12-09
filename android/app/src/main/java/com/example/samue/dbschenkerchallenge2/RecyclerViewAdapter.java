@@ -67,7 +67,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             cardView.setCardBackgroundColor(v.getResources().getColor(R.color.lawn_green));
             cardView.setTag("SELECTED");
             NotifyServer(((RelativeLayout)cardView.getParent()).getTag().toString());
-            Log.i("CARD IS GREEN","GREEN");
+            Log.i("CARD IS SET GREEN >> ","GREEN");
             return;
 
 
@@ -102,7 +102,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private void NotifyServer(String tag) {
         for(Client c : DriverActivity.clients)
             if(c.parcel.parcelNo.equals(tag)) {
-                FinalDelivery fd = new FinalDelivery(c.parcel.id, c.parcel.eta);
+                FinalDelivery fd = new FinalDelivery(c.parcel.id, "30");
                 fd.execute();
             }
     }
@@ -129,10 +129,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView clientNameTextView;
         TextView clientAddresstextView;
         RelativeLayout parentLayout;
+        CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            cardView = itemView.findViewById(R.id.cardView);
             clientNameTextView = itemView.findViewById(R.id.clientNameTextView);
             clientAddresstextView = itemView.findViewById(R.id.clientAddressTextView);
             parentLayout = itemView.findViewById(R.id.parent_layout);
