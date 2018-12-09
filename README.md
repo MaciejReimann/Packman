@@ -1,7 +1,9 @@
 # DBSchenkerChallenge2
 
 http://77.55.234.86:8090/api/client GET
+
 http://77.55.234.86:8090/api/parcel/delivered POST
+
 example body:
 ```
 {
@@ -9,6 +11,7 @@ example body:
 }  
 ```
 http://77.55.234.86:8090//api/parcel/updateEta POST
+
 example body:
 ```
 {
