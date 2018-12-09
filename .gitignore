@@ -11,3 +11,5 @@
 /webapp/.idea
 /webapp/build
 /webapp/out
+/webapp_front/node_modules
+/webapp_front/client/node_modules

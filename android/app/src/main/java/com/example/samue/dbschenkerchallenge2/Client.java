@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class Client {
 
+    public static int count = 0;
+
     public String id;
     public String name;
     public String description;
@@ -16,17 +18,18 @@ public class Client {
     public String from;
     public String to;
 
-    public ArrayList<Parcel> parcels;
+    public Parcel parcel;
 
     public Client(String id, String name, String address, String phone_number) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.phone_number = phone_number;
+        count++;
     }
 
     public Client(String id, String name, String description, String phone_number,
-                  String from, String to, ArrayList<Parcel> parcels) {
+                  String from, String to, Parcel parcel) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -34,6 +37,9 @@ public class Client {
         this.address = "!address";
         this.from = from;
         this.to = to;
-        this.parcels  = new ArrayList<Parcel>(parcels);
+        this.parcel  = parcel;
+        count ++;
     }
+
+
 }

@@ -1,22 +1,43 @@
 package hello.domain;
 
 import hello.model.Client;
+import hello.model.Parcel;
+import org.springframework.util.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClientDto implements BaseDto<Client> {
 
     private Long id;
     private String name;
-    private String address;
-    private String packageId;
-    private String time;
     private String description;
     private String phone;
+    private String from;
+    private String to;
+    private List<ParcelDto> parcels;
 
     public ClientDto() {
 
     }
     public ClientDto(Client c) {
         mapFromEntity(c);
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
     }
 
     public Long getId() {
@@ -35,29 +56,6 @@ public class ClientDto implements BaseDto<Client> {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPackageId() {
-        return packageId;
-    }
-
-    public void setPackageId(String packageId) {
-        this.packageId = packageId;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     public String getDescription() {
         return description;
@@ -75,29 +73,50 @@ public class ClientDto implements BaseDto<Client> {
         this.phone = phone;
     }
 
+    public List<ParcelDto> getParcels() {
+        return parcels;
+    }
+
+    public void setParcels(List<ParcelDto> parcels) {
+        this.parcels = parcels;
+    }
 
     @Override
     public ClientDto mapFromEntity(Client entity) {
         setId(entity.getId());
         setName(entity.getName());
         setDescription(entity.getDescription());
-        setAddress(entity.getAddress());
-        setPackageId(entity.getPackageId());
         setPhone(entity.getPhone());
-        setTime(entity.getTime());
+        setFrom(entity.getFrom());
+        setTo(entity.getTo());
+        List<ParcelDto> parcels = new ArrayList<>();
+        for (Parcel p : entity.getParcels()) {
+            parcels.add(new ParcelDto(p));
+        }
+        setParcels(parcels);
         return this;
     }
 
     @Override
     public Client mapToEntity() {
         Client entity = new Client();
-        entity.setId(getId());
+        if (!StringUtils.isEmpty(getId())) {
+            entity.setId(getId());
+        }
         entity.setName(getName());
         entity.setDescription(getDescription());
-        entity.setAddress(getAddress());
-        entity.setPackageId(getPackageId());
         entity.setPhone(getPhone());
-        entity.setTime(getTime());
+        entity.setFrom(getFrom());
+        entity.setTo(getTo());
+        entity.setBfr(getBfr());
         return entity;
+    }
+
+    public String getBfr() {
+        String bfr = "";
+        for (String s : name.split(" ")) {
+            bfr+=s.charAt(0);
+        }
+        return bfr;
     }
 }
