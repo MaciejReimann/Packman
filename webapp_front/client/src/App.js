@@ -11,8 +11,13 @@ import store from './store';
 import Navbar from './components/presentation/Navbar';
 import Footer from './components/presentation/Footer';
 import dashboardContainer from './components/containers/dashboardContainer';
+import formContainer from './components/containers/formContainer';
 
 import './App.css';
+import './Navbar.css';
+import './Main.css';
+import './Footer.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -35,9 +40,10 @@ class App extends Component {
           <div className="App">
             <Navbar/>
             {/* <Route exact path='/' component={ Landing } /> */}
-            <div className="container">
+            <div className="main-container">
               {/* <Route exact path="/add" component={ AddOrder } /> */}
               <Route exact path="/dashboard" component={ dashboardContainer } />
+              <Route exact path="/add" component={ formContainer } />
             </div>
             <Footer/>
           </div>

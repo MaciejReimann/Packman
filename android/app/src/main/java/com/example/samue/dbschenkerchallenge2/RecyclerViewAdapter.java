@@ -10,12 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -70,6 +66,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         if(cardView.getTag() == null || !cardView.getTag().toString().equals("SELECTED")) {
             cardView.setCardBackgroundColor(v.getResources().getColor(R.color.lawn_green));
             cardView.setTag("SELECTED");
+            NotifyServer(((RelativeLayout)cardView.getParent()).getTag().toString());
             Log.i("CARD IS GREEN","GREEN");
             return;
 
@@ -102,12 +99,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 
+    private void NotifyServer(String tag) {
+        for(Client c : DriverActivity.clients)
+            if(c.parcel.parcelNo.equals(tag)) {
+                FinalDelivery fd = new FinalDelivery(c.parcel.id, c.parcel.eta);
+                fd.execute();
+            }
+    }
+
     private void RemoveItem(String tag) {
         for(Client c : DriverActivity.clients)
             if(c.parcel.parcelNo.equals(tag)) {
                 DriverActivity.clients.remove(c);
                 this.notifyDataSetChanged();
-
+                SuccessfulDelivery successfulDeliveryd = new SuccessfulDelivery(c.parcel.id);
+                successfulDeliveryd.execute();
                 break;
 
             }
