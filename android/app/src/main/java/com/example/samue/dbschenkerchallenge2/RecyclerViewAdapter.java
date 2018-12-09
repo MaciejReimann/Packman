@@ -64,7 +64,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private void onClientClick(View v, final int position) {
         cardView = (CardView) v.findViewById(R.id.cardView);
         if(cardView.getTag() == null || !cardView.getTag().toString().equals("SELECTED")) {
-            cardView.setCardBackgroundColor(v.getResources().getColor(R.color.lawn_green));
+            cardView.setCardBackgroundColor(v.getResources().getColor(R.color.yellow));
             cardView.setTag("SELECTED");
             NotifyServer(((RelativeLayout)cardView.getParent()).getTag().toString());
             Log.i("CARD IS SET GREEN >> ","GREEN");
