@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -60,7 +62,20 @@ public class DriverActivity extends AppCompatActivity {
        swipeController = new SwipeController(new SwipeControllerActions() {
             @Override
             public void onRightClicked(int position) {
+                Log.i("position >>>  ", ""+position);
                 Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                Client client = clients.get(position);
+                String str = "" +
+                        client.name + "  " + client.phone_number + "\n" +
+                        client.parcel.address + "\n" +
+                        "Expected Delivery:\n" +
+                        "From:\t" + client.from + "\n" +
+                        "To:  \t" + client.to + "\n" +
+                        client.parcel.parcelNo;
+
+                Log.i("client string >>> ", str);
+
+                intent.putExtra("CLIENT_DETAILS", (Serializable) str);
                 startActivity(intent);
             }
         });
