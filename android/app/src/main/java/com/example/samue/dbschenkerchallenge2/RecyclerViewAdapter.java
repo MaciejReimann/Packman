@@ -77,7 +77,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
          } else{
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getContext());
-            alertDialogBuilder.setMessage("Are you sure");
+            alertDialogBuilder.setMessage("Are you sure?");
             alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
