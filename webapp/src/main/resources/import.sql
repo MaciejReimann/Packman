@@ -33,7 +33,7 @@ create table `parcel`
 INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(1, 'Jan Kowalski', 'Dull Company', '+48123123123', 'JK', '2018/12/10 08:00', '2018/12/10 14:00');
 INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(2, 'Janina Nowak', 'Borning Inc', '+48163888123', 'JN', '2018/12/10 10:00', '2018/12/10 12:00' );
 INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(3, 'Ewa Brzeczyszczykiewicz', 'Nice Co.', '+48555123123', 'EB', '2018/12/10 12:00', '2018/12/10 18:00');
-INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(4, 'Robert Derden', 'Nice Co.', '+4855666123', 'RB', '2018/12/10 8:00', '2018/12/10 12:00');
+INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(4, 'Robert Derden', 'Nice Co.', '+4855666123', 'RB', '2018/12/10 08:00', '2018/12/10 12:00');
 INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(5, 'Krzysztof Erbra', 'Rock Co.', '+48121345633', 'KE', '2018/12/10 12:00', '2018/12/10 18:00');
 INSERT INTO client (id, name, description, phone, bfr, time_from, time_to) values(6, 'Filip Konopny', 'Dance Limited.', '+48555123123', 'FK', '2018/12/10 06:00', '2018/12/10 11:00');
 

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -25,6 +27,12 @@ public class ClientServiceImpl implements ClientService{
         for (Client c : clientRepository.findAll()) {
             clients.add(new ClientDto(c));
         }
+        Collections.sort(clients, new Comparator<ClientDto>() {
+            @Override
+            public int compare(ClientDto o1, ClientDto o2) {
+                return o1.getFrom().compareTo(o2.getFrom());
+            }
+        });
         return clients;
     }
 
