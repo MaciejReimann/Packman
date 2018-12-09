@@ -57,7 +57,7 @@ public class DriverActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        swipeController = new SwipeController(new SwipeControllerActions() {
+       swipeController = new SwipeController(new SwipeControllerActions() {
             @Override
             public void onRightClicked(int position) {
                 Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
