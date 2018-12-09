@@ -1,0 +1,19 @@
+
+
+.footer {
+    height: 4rem; 
+    border-top: 1.5px solid lightgrey;
+    display: grid;
+    align-items: center;
+}
+
+.footer .items {
+    display: flex;
+    flex-direction: row;
+}
+
+.items>a {
+    margin-left: 3rem;
+    color: grey;
+    text-decoration: none;
+}

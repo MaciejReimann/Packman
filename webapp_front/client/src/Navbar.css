@@ -1,0 +1,33 @@
+
+
+
+.navbar {
+    height: 5rem; 
+    border-bottom: 1.5px solid lightgrey;
+    display: grid;
+    align-items: center;
+}
+
+.navbar .items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.logo>a>img {
+    height: 1.8rem;
+    margin-top: .3rem;
+    margin-left: 3rem;
+}
+
+.icons {
+    height: 1.8rem;
+    margin-right: 3rem;
+    display: block; 
+}
+
+.icons>i {
+    margin-top: .6rem;
+    margin-left: 1rem; 
+}

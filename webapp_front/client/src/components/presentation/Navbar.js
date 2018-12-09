@@ -7,10 +7,20 @@ import {
 
 const Navbar = ({ getAllOrders }) => {
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-            <div className="container">
-            <Link className="navbar-brand" to="/">DB Schenker</Link>
-            <button onClick={getAllOrders}>Get All</button>
+        <nav className="navbar">
+            <div className="items">
+                <div className="logo">
+                    <a href="https://www.dbschenker.com/global">
+                        <img src="logos/db-logo.svg"></img>
+                    </a>
+                </div>
+                <div className="icons">
+                    <i className="fas fa-search"></i>
+                    <i className="fas fa-bars"></i>
+                </div>
+                {/* <div className="search">
+                    
+                </div>                 */}
             </div>
         </nav>
     )
