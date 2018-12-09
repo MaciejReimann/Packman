@@ -30,7 +30,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     ArrayList<Client> clients = new ArrayList<>();
     Context context;
     CardView cardView;
-    boolean isGreen = false;
 
     public RecyclerViewAdapter(ArrayList<Client> clients, Context context){
         this.clients = clients;
@@ -40,7 +39,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate( R.layout.layout_listitem, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
         return holder;
@@ -51,8 +50,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         Log.i(">>> ", "onBindViewHolder : called");
         Log.d(">>> ", "onBindViewHolder : called");
 
-        holder.clientNameTextView.setText(clients.get(position).name);
-        holder.clientAddresstextView.setText(clients.get(position).address);
+        Client client = clients.get(position);
+
+        holder.clientNameTextView.setText(client.name);
+        holder.clientAddresstextView.setText(client.parcel.address+"\n"+client.parcel.parcelNo);
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +101,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return clients.size();
+        return Client.count;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

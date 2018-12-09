@@ -1,19 +1,10 @@
 import React from 'react';
 
-const orderToCard = order => {
-    console.log(order)
-    return (
-        <div>
-            {order.parcelNo}
-        </div>
-    )
-}
+import OrderCard from './OrderCard'
 
 const Dashboard = ({ activeOrders }) => {
-    console.log( 
-        activeOrders
-    )
-    const activeOrdersCards = activeOrders.map(order => orderToCard(order))
+    const activeOrdersCards = activeOrders
+        .map(order => <OrderCard order={order}/>);
     return (
         <div className = "dashboard">
             <div className = "container">
