@@ -91,7 +91,9 @@ public class ClientDto implements BaseDto<Client> {
         setTo(entity.getTo());
         List<ParcelDto> parcels = new ArrayList<>();
         for (Parcel p : entity.getParcels()) {
-            parcels.add(new ParcelDto(p));
+            if ("out for delivery".equals(p.getStatus())) {
+                parcels.add(new ParcelDto(p));
+            }
         }
         setParcels(parcels);
         return this;

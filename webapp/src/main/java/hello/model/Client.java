@@ -8,8 +8,8 @@ import java.util.List;
 public class Client implements BaseEntity {
 
     @Id
-    @SequenceGenerator(name="client_seq", initialValue = 10, allocationSize = 10)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_seq")
+    @SequenceGenerator(sequenceName = "client_seq", name="client_seq_id", initialValue = 10, allocationSize = 10)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "client_seq_id")
     @Column(name = "id")
     private Long id;
 
