@@ -19,3 +19,6 @@ example body:
   "eta": "30" 
 }
 ```
+For POST
+
+Content-Type : application/json
