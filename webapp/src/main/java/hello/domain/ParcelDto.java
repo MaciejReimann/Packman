@@ -4,7 +4,7 @@ import hello.model.Parcel;
 
 public class ParcelDto implements BaseDto<Parcel> {
 
-    private Long id;
+    private Integer id;
     private String parcelNo;
     private String address;
     private String Status;
@@ -19,11 +19,11 @@ public class ParcelDto implements BaseDto<Parcel> {
         mapFromEntity(parcel);
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
