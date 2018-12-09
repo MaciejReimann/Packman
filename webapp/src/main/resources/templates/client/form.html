@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header">
+</head>
+<body>
+<main>
+    <div class="container-fluid mt-2">
+        <img class="mw-100" src="/hakatonLogo.jpg" alt="Max-width 100%"/>
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/parcel">Parcels</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Client Form</h3>
+                <form action="#" th:action="@{/client/new}" th:object="${client}"
+                      method="post">
+                    <p>
+                        Name: <input type="text" th:field="*{name}"/>
+                    </p>
+                    <p>
+                        Description: <input type="text" th:field="*{description}"/>
+                    </p>
+                    <p>
+                        Phone: <input type="text" th:field="*{phone}"/>
+                    </p>
+                    <p>
+                        Date from: <input type="text" th:field="*{from}"/>
+                    </p>
+                    <p>
+                        Date to: <input type="text" th:field="*{to}"/>
+                    </p>
+                    <p>
+                        <input type="submit" value="Submit"/>
+                        <input type="reset" value="Reset"/>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

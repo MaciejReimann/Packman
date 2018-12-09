@@ -1,7 +1,9 @@
 package hello.services;
 
 import hello.domain.ClientDto;
+import hello.domain.ParcelDto;
 import hello.model.Client;
+import hello.model.Parcel;
 import hello.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +26,17 @@ public class ClientServiceImpl implements ClientService{
             clients.add(new ClientDto(c));
         }
         return clients;
+    }
+
+    @Override
+    public List<ParcelDto> getParcelsForClient(String token) {
+        List<ParcelDto> parcels = new ArrayList<>();
+        Client client = clientRepository.findOneByBfr(token);
+        if (client != null) {
+            for (Parcel p : client.getParcels()) {
+                parcels.add(new ParcelDto(p));
+            }
+        }
+        return parcels;
     }
 }
