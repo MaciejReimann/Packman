@@ -18,7 +18,7 @@ public class ParcelRestController {
 
     @ResponseBody
     @RequestMapping(value = "/api/parcel/delivered", method = RequestMethod.POST, consumes = "application/json")
-    public void getClients(@RequestAttribute ParcelDto parcelDto, HttpServletResponse response) {
+    public void getClients(@RequestBody ParcelDto parcelDto, HttpServletResponse response) {
         Parcel parcel = parcelRepository.findOne(parcelDto.getId());
         if (parcel == null) {
             response.setStatus(HttpStatus.BAD_REQUEST.value());
