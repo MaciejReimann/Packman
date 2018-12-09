@@ -16,8 +16,8 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="Hello Mat !"/>
-    </RelativeLayout>
-
+    </RelativeLayout> 
+    
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

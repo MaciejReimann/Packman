@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { 
+    getAllOrders 
+} from '../../actions/ordersActions';
 
 import Dashboard from '../presentation/Dashboard';
 
 class dashboardContainer extends Component {
+
+    componentDidMount() {
+        this.props.getAllOrders()
+    }
 
     render() {
         return (
@@ -20,4 +26,9 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(dashboardContainer);
+export default connect(
+    mapStateToProps,
+    {
+        getAllOrders
+    }
+    )(dashboardContainer);
