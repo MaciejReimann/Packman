@@ -1,8 +1,11 @@
 package hello.controllers;
 
 import hello.domain.ParcelDto;
+import hello.model.Client;
 import hello.model.Parcel;
+import hello.repositories.ClientRepository;
 import hello.repositories.ParcelRepository;
+import hello.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
@@ -16,6 +19,12 @@ public class ParcelRestController {
 
     @Autowired
     ParcelRepository parcelRepository;
+
+    @Autowired
+    ClientRepository clientRepository;
+
+    @Autowired
+    EmailService emailService;
 
     @RequestMapping(value = "/api/parcel/delivered", method = RequestMethod.POST, consumes = "application/json")
     public void setDelivered(@RequestBody ParcelDto parcelDto, HttpServletResponse response) {
@@ -38,5 +47,6 @@ public class ParcelRestController {
             parcel.setEta(parcelDto.getEta());
             parcelRepository.save(parcel);
         }
+        emailService.sendSimpleMessage(parcel.getClient().getEmail(), "Parcel no"+ parcel.getParcelNo() + " will sooon at your doorstep!", "Parcel " + parcel.getParcelNo()  +" will be at your doorstep in " + parcel.getEta() + " minutes.");
     }
 }

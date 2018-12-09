@@ -31,8 +31,19 @@ public class Client implements BaseEntity {
     @Column(name = "time_to")
     private String to;
 
+    @Column(name = "email")
+    private String email;
+
     @OneToMany(mappedBy="client", fetch = FetchType.EAGER)
     private List<Parcel> parcels;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getFrom() {
         return from;
