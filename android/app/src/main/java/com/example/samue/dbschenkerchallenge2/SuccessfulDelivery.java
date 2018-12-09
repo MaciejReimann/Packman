@@ -25,8 +25,8 @@ public class SuccessfulDelivery extends AsyncTask<Void, Void, Void> {
     String json;
     String response;
 
-    public SuccessfulDelivery(String json){
-        this.json = json;
+    public SuccessfulDelivery(String id){
+        this.json = "{\"id\":"+id+"}";
     }
 
     @Override
@@ -44,6 +44,7 @@ public class SuccessfulDelivery extends AsyncTask<Void, Void, Void> {
                 client = (HttpURLConnection) url.openConnection();
                 client.setRequestMethod("POST");
 
+                client.setRequestProperty("http://77.55.234.86:8090/api/parcel/delivered","application/json");
 
                 client.setDoInput(true);
                 client.setDoOutput(true);
@@ -66,7 +67,7 @@ public class SuccessfulDelivery extends AsyncTask<Void, Void, Void> {
                     }
                 }
                 else {
-                    response = "";
+                    response = "!NOT_OKAY: "+responseCode;
                 }
                 Log.i("S_DELIV >> ", json);
                 Log.i("S_DELIV >> ", response);
